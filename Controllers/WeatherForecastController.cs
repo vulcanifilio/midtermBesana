@@ -1,32 +1,44 @@
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace midtermBesana.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class testController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly ILogger<testController> _logger;
 
-    private readonly ILogger<WeatherForecastController> _logger;
-
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public testController(ILogger<testController> logger)
     {
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpGet("GetCosine")]
+    public IEnumerable<Cosine> GetCosine()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        return Enumerable.Range(0, 1).Select(index => new Cosine
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            degree = 60
+        })
+        .ToArray();
+    }[HttpGet("GetSine")]
+    public IEnumerable<Sine> GetSine()
+    {
+        return Enumerable.Range(0, 1).Select(index => new Sine
+        {
+            degree = 30
         })
         .ToArray();
     }
+
+    public IEnumerable<Tangent> GetTangent()
+    {
+        return Enumerable.Range(0, 1).Select(index => new Tangent
+        {
+            degree = 90
+        })
+        .ToArray();
+    }
+
 }
