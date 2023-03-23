@@ -6,11 +6,6 @@ namespace midtermBesana.Controllers;
 [Route("[controller]")]
 public class WeatherForecastController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
-
     private readonly ILogger<WeatherForecastController> _logger;
 
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
@@ -19,13 +14,30 @@ public class WeatherForecastController : ControllerBase
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public IEnumerable<WeatherForecasters> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        return Enumerable.Range(1, 5).Select(index => new WeatherForecasters
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            Numb = Random.Shared.Next(1, 24),
+        })
+        .ToArray();
+    }
+}
+
+public class SineFunctionController : ControllerBase
+{
+    private readonly ILogger<SineFunctionController> _logger;
+
+    public SineFunctionController(ILogger<SineFunctionController> logger)
+    {
+        _logger = logger;
+    }
+[HttpGet(Name = "GetSineFunction")]
+    public IEnumerable<SineFunctions> Get()
+    {
+        return Enumerable.Range(1, 5).Select(index => new SineFunctions
+        {
+            Numbe = Random.Shared.Next(1, 24),
         })
         .ToArray();
     }
