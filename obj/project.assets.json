@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\user\\midtermBesana\\midtermBesana\\midtermBesana.csproj",
+      "projectUniqueName": "C:\\Users\\user\\devBesanaMidterm\\midtermBesana\\midtermBesana.csproj",
       "projectName": "midtermBesana",
-      "projectPath": "C:\\Users\\user\\midtermBesana\\midtermBesana\\midtermBesana.csproj",
+      "projectPath": "C:\\Users\\user\\devBesanaMidterm\\midtermBesana\\midtermBesana.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\user\\midtermBesana\\midtermBesana\\obj\\",
+      "outputPath": "C:\\Users\\user\\devBesanaMidterm\\midtermBesana\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config"
