@@ -1,44 +1,44 @@
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace midtermBesana.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class WeatherForecastController : ControllerBase
+public class testController : ControllerBase
 {
-    private readonly ILogger<WeatherForecastController> _logger;
+    private readonly ILogger<testController> _logger;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public testController(ILogger<testController> logger)
     {
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecasters> Get()
+    [HttpGet("GetCosine")]
+    public IEnumerable<Cosine> GetCosine()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecasters
+        return Enumerable.Range(0, 1).Select(index => new Cosine
         {
-            Numb = Random.Shared.Next(1, 24),
+            degree = 60
+        })
+        .ToArray();
+    }[HttpGet("GetSine")]
+    public IEnumerable<Sine> GetSine()
+    {
+        return Enumerable.Range(0, 1).Select(index => new Sine
+        {
+            degree = 30
         })
         .ToArray();
     }
-}
 
-public class SineFunctionController : ControllerBase
-{
-    private readonly ILogger<SineFunctionController> _logger;
-
-    public SineFunctionController(ILogger<SineFunctionController> logger)
+    public IEnumerable<Tangent> GetTangent()
     {
-        _logger = logger;
-    }
-[HttpGet(Name = "GetSineFunction")]
-    public IEnumerable<SineFunctions> Get()
-    {
-        return Enumerable.Range(1, 5).Select(index => new SineFunctions
+        return Enumerable.Range(0, 1).Select(index => new Tangent
         {
-            Numbe = Random.Shared.Next(1, 24),
+            degree = 90
         })
         .ToArray();
     }
+
 }
